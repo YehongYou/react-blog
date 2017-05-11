@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
+import {Field, reduxForm} from 'redux-form';
 
 class PostsNew extends Component{
   render(){
     return(
-      <div>
-         postnew!
-      </div>
+      <form>
+        <Field
+          name='title'
+          component={}
+        />
+      </form>
     );
   }
 }
 
-export default PostsNew;
+export default reduxForm({ // this function allow reduxform directly communitate from component to reducer that we setup
+  form: 'PostNewForm'  // string need to unquie
+})(PostsNew);
