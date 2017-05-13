@@ -5,16 +5,19 @@ import {Link} from 'react-router-dom'; // == classic <a> tag
 import {fetchPosts} from '../actions';
 
 class PostsIndex extends Component {
-  componentDidMount(){ // react life cycle function autotiaclly call by react when component show up inside the dom, call the function once time when the component first render
-    this.props.fetchPosts();
-  }
+    componentDidMount(){ // react life cycle function autotiaclly call by react when component show up inside the dom, call the function once time when the component first render
+      this.props.fetchPosts();
+
+   }
 
 renderPosts(){
   //_.map can map the object list,
   return _.map(this.props.posts, (post)=>{
     return (
       <li className="list-group-item" key={post.id}>
-        {post.title}
+        <Link to={`/posts/${post.id}`}>
+         {post.title}
+        </Link>
       </li>
     )
   })

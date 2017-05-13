@@ -1,8 +1,10 @@
 import _ from 'lodash';
-import {FETCH_POSTS, FETCH_POST} from '../actions';
+import {FETCH_POSTS, FETCH_POST, DELETE_POST} from '../actions';
 
 export default function(state ={}, action){
   switch (action.type) {
+    case DELETE_POST
+      return _.map(state,action.payload); // look at current state, if obj has key of payload(id) we has deleted, jus
     case FETCH_POST:
       // const post = action.payload.data    es5!!!!
       // const newSate = {...state}; // take all the existing posts we have
